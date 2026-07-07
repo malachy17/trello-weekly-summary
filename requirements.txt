@@ -1,5 +1,7 @@
 aiohttp==3.11.11
+fpdf2==2.8.3
 google-auth==2.37.0
 google-auth-oauthlib==1.2.1
 google-auth-httplib2==0.2.0
 google-api-python-client==2.156.0
+python-dotenv==1.0.1

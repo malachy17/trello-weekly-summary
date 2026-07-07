@@ -2,9 +2,9 @@ name: Weekly Trello Summary
 
 on:
   schedule:
-    # Every Friday at 09:00 UTC.
-    # Change the cron expression if you want a different time.
-    - cron: "0 9 * * 5"
+    # Every Friday at 9:00 AM Pacific Daylight Time (16:00 UTC).
+    # In Pacific Standard Time (winter) this becomes 8:00 AM; switch to 17:00 UTC if needed.
+    - cron: "0 16 * * 5"
   workflow_dispatch:
 
 jobs:
@@ -34,6 +34,12 @@ jobs:
           LLM_URL: ${{ secrets.LLM_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           GOOGLE_DRIVE_FOLDER_ID: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_CLIENT_SECRET: ${{ secrets.GOOGLE_CLIENT_SECRET }}
+          GOOGLE_REFRESH_TOKEN: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-          CREATE_PDF: ${{ secrets.CREATE_PDF }}
+          SENDER_NAME: ${{ secrets.SENDER_NAME }}
+          RECIPIENT_NAME: ${{ secrets.RECIPIENT_NAME }}
+          RECIPIENT_ADDRESS: ${{ secrets.RECIPIENT_ADDRESS }}
+          LOGO_PATH: ${{ secrets.LOGO_PATH }}
         run: python main.py
