@@ -220,6 +220,10 @@ def filter_recent_cards(cards: list[dict]) -> list[dict]:
 
 class MaehwaLetterPDF(FPDF):
     def header(self):
+        # Only show logo on the first page.
+        if self.page_no() != 1:
+            return
+
         # Logo at top left; afterwards force cursor below the logo so body
         # text does not wrap beside it.
         if os.path.exists(LOGO_PATH):

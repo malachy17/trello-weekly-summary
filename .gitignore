@@ -25,3 +25,6 @@ service-account*.json
 
 # Optional test helper (kept locally, not needed in CI)
 test_google.py
+
+# Local documentation/README (not pushed to repo)
+README.md
